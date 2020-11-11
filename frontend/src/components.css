@@ -1,0 +1,33 @@
+.design-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.auth-inner-table {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.table-padding {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.project-title {
+    margin-bottom: 1em;
+}
+
+.design-image {
+    max-width: 450px;
+    max-height: 300px;
+}
+
+.column-padding {
+    padding-bottom: 0.5em;
+}
+
+.error-textbox p {
+    color: red;
+}
