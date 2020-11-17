@@ -76,11 +76,15 @@ class ViewDesigns extends Component {
         );
     }
 
+    getImageURL(backendURL, designURL) {
+        return designURL
+    }
+
     renderModifiedDownload(data) {
         if (data.desing_converted) {
             return (
                 <div className="row row-design">
-                    <a href={`${process.env.REACT_APP_BACKEND_URL}${data.desing_converted}`} download="modified.png" target="_blank">Descargar modificada</a>
+                    <a href={this.getImageURL(process.env.REACT_APP_BACKEND_URL, data.desing_converted)} download="modified.png" target="_blank">Descargar modificada</a>
                 </div>
             );
         }
@@ -90,13 +94,13 @@ class ViewDesigns extends Component {
         if (data.desing_converted) {
             return (
                 <div className="row row-design">
-                    <img src={`${process.env.REACT_APP_BACKEND_URL}${data.desing_converted}`} style={{ maxWidth: '400px', marginBottom: '1em', }} alt="thumbnail" />
+                    <img src={this.getImageURL(process.env.REACT_APP_BACKEND_URL, data.desing_converted)} style={{ maxWidth: '400px', marginBottom: '1em', }} alt="thumbnail" />
                 </div>
             );
         } else {
             return (
                 <div className="row row-design">
-                    <img src={`${process.env.REACT_APP_BACKEND_URL}${data.desing_original}`} style={{ maxWidth: '400px', marginBottom: '1em', }} alt="thumbnail" />
+                    <img src={this.getImageURL(process.env.REACT_APP_BACKEND_URL, data.desing_original)} style={{ maxWidth: '400px', marginBottom: '1em', }} alt="thumbnail" />
                 </div>
             );
         }
@@ -119,7 +123,7 @@ class ViewDesigns extends Component {
                 <p>{`Estado procesamiento: ${data.design_state}`}</p>
                 </div>
                 <div className="row row-design">
-                    <a href={`${process.env.REACT_APP_BACKEND_URL}${data.desing_original}`} download="original.png" target="_blank">Descargar tamaño original</a>
+                    <a href={this.getImageURL(process.env.REACT_APP_BACKEND_URL, data.desing_original)} download="original.png" target="_blank">Descargar tamaño original</a>
                 </div>
                 {this.renderModifiedDownload(data)}
             </div>

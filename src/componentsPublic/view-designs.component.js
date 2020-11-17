@@ -46,15 +46,18 @@ class PublicViewDesigns extends Component {
                 console.log(err)
             });
     }
-
     drawDesign(data, index) {
         return (
             <div className="auth-inner-table" key={data.design_uuid}>
                 <div className="design-container">
-                    <img src={`${process.env.REACT_APP_BACKEND_URL}${data.desing_original}`} className="design-image" alt="thumbnail" />
+                    <img src={this.getImageURL(process.env.REACT_APP_BACKEND_URL, data.desing_original)} className="design-image" alt="thumbnail" />
                 </div>
             </div>
         )
+    }
+
+    getImageURL(backendURL, designURL) {
+        return designURL
     }
 
     renderDesigns() {
